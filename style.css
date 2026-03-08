@@ -118,7 +118,7 @@ a{ color: inherit; text-decoration: none; }
   font-size: clamp(26px, 2vw, 32px);
   text-shadow: 0 2px 14px rgba(0,0,0,.25);
   white-space: nowrap;
-  font-weight: 400;
+  font-weight: 200;
 }
 
 /* 下に向かって暗く（or 背景色に）フェード */
