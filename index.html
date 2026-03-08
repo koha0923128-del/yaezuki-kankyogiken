@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sample Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- 雰囲気用：セリフ系 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header (Hero上に重ねる) -->
+  <header class="site-header">
+    <div class="header-inner">
+        <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/yaezuki-logo.png" alt="八重月環境技研ホームページ">
+        </a>
+
+      <button class="hamburger" type="button" aria-label="メニューを開く" aria-controls="drawer" aria-expanded="false">
+        <span class="hamburger-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Drawer / Overlay Menu -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__backdrop" data-close></div>
+
+    <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="サイトメニュー">
+      <button class="drawer__close" type="button" aria-label="メニューを閉じる" data-close>×</button>
+
+      <div class="drawer__left">
+        <!-- ここ：メニュー表示中も見える大きい写真（背景） -->
+        <img class="drawer__image" src="assets/hero.jpg" alt="">
+      </div>
+
+      <nav class="drawer__right">
+        <a class="drawer__link" href="index.html">Home</a>
+        <a class="drawer__link" href="product.html">Gallery</a>
+        <a class="drawer__link" href="about.html">About</a>
+        <a class="drawer__link" href="column.html">Column</a>
+        <a class="drawer__link" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <!-- ここ：メインビジュアル写真 -->
+      <img class="hero__image" src="assets/hero2.JPG" alt="">
+
+      <h1 class="hero__catch">
+        <span class="hero__catchText hero-catch--reveal">心に響くつながりを</span>
+      </h1>
+    </section>
+
+     <!-- Prologue -->
+    <section class="prologue">
+      <!-- ここ：メインビジュアル写真 -->
+      <img class="prologue__image" src="assets/hosizora.jpg" alt="星空の写真">
+      <div class="container container--narrow">
+        <div class="company-icon">
+          <img src="assets/yaezuki-icon5.png" alt="アイコン">
+        </div>
+        <h2 class="section__title">Prologue</h2>
+        <p class="section__text">
+          太陽はすべてを照らし<br>
+          月はすべてを包む<br>
+          命の星 地球の今をすべての存在と共に歩んでいます<br>
+          地球＝人間だということを知っていますか？
+        </p>
+      </div>   
+    </section>
+
+    <!-- ========== Greeting ========== -->
+    <section class="section section--greeting" id="greeting">
+      <div class="container container--narrow">
+        <h2 class="section__title">Greeting</h2>
+        <p class="section__text">
+          日本という国を"社会"と"環境"という風に分けて眺めてみた時、<br>
+          みなさんにはどんな国にみえているのでしょうか。
+        </p>
+        <p class="section__text">
+          令和元年生まれの人は今年7歳ですね。<br>
+          まだ日本という認識は難しいかもしれません。<br>
+          平成元年生まれの人は今年37歳です。<br>
+          昭和元年生まれの人はなんと今年100歳をむかえます。
+        </p>
+        <p class="section__text">
+          私たちは日々"社会"の中で生きて毎日忙しく、<br>
+          ネットやテレビの情報に埋没してしまいますが、<br>
+          あえて"環境"をより意識してみた時、昭和生まれの人は今、<br>
+          大きな違和感を感じる方が多いと思います。<br>
+          八重月環境技研は、"環境"を"自然界"という言葉に置き換えて、<br>
+          "今"を深く掘り下げ、"未来"をみなさんと一緒に創造していきます。
+        </p>
+      </div>
+    </section>
+
+<!-- Product (横スクロール) -->
+<section class="section" id="product">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="section__title section__title--left">Gallery</h2>
+    </div>
+
+    <!-- ★ここだけクラス追加 -->
+    <div class="carousel carousel--product" role="region" aria-label="商品一覧（横スクロール）">
+      <!-- カード：8枚まで増やしてOK -->
+      <div class="card js-product">
+        <img class="card__img" src="assets/anneUmi.JPG" alt="アンうみ">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/tsuruha-1.JPG" alt="Moon Ochoko">
+      </div>
+
+      <div class="card js-product">
+        <img class="card__img" src="assets/tsuruha-2.JPG" alt="Nitted Pot">
+      </div>
+
+      <div class="card js-product">
+        <img class="card__img" src="assets/tsuruha-3.JPG" alt="Chip">
+      </div>
+
+      <div class="card js-product">
+        <img class="card__img" src="assets/tsuruha-4.JPG" alt="Tokkuri">
+      </div>
+
+      <div class="card js-product">
+        <img class="card__img" src="assets/nae-2.JPG" alt="Naegi">
+      </div>
+
+      <div class="card js-product">
+        <img class="card__img" src="assets/kazusa-1.JPG" alt="服">
+      </div>
+
+      <div class="card js-product">
+        <img class="card__img" src="assets/home-1.JPG" alt="Sugidama">
+      </div>
+
+      <div class="card js-product">
+        <img class="card__img" src="assets/kazusa-2.jpeg" alt="試着画像">
+      </div>
+
+      <div class="card js-product">
+        <img class="card__img" src="assets/home-2.JPG" alt="アン">
+      </div>
+
+      <div class="card js-product">
+        <img class="card__img" src="assets/gallery-1.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/gallery-2.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/gallery-3.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/gallery-4.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/gallery-5.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/gallery-6.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/gallery-7.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/gallery-8.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/gallery-9.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/home-3.JPG" alt="">
+      </div>
+      <div class="card js-product">
+        <img class="card__img" src="assets/nature-10.JPG" alt="">
+      </div>
+
+      <!-- product-4 ～ product-8 も同じ形で追加 -->
+    </div>
+
+    <div class="center">
+      <a class="btn" href="product.html">more</a>
+    </div>
+  </div>
+</section>
+
+    <!-- About -->
+    <section class="section section--about" id="about">
+      <div class="container container--narrow">
+        <h2 class="section__title">About</h2>
+        <p class="section__text">
+          <!-- ここ：About文章 -->
+          私たちは、人の身体も"自然界"だということを学びました。<br>
+          そして"自然界"には"しくみ"があるということを。
+        </p>
+
+        <!-- ここ：Aboutの大きめ画像 -->
+        <img class="about__image" src="assets/nature-19.JPG" alt="鳥の写真">
+        <div class="center">
+          <a class="btn" href="about.html">Read more</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Column (横スクロール) -->
+    <section class="section" id="column">
+    <div class="container">
+    <h2 class="section__title">Column</h2>
+
+    <div class="carousel carousel--column" role="region" aria-label="コラム一覧（横スクロール）">
+      <!-- columnカード -->
+      <article class="card card--column js-post" data-date="2026.01.17">
+        <img class="card__img" src="assets/nature-24.JPG" alt="">
+        <h3 class="card__title">枯れていく 森林の危機 例えば”松枯れ”</h3>
+
+        <!-- 記事本文（非表示） -->
+        <div class="post-content" hidden>
+          <p>
+            山で”松が枯れる”という現象。
+          </p>
+          <p>
+            専門家の調査によって、松くい虫が原因とされていますが、
+            ではなぜ松くい虫が元気になっているのでしょうか。
+          </p>
+          <p>
+            実は松という木は、エネルギーを特別たくさん必要とする木です。
+            より視野を広げて、山が必要とするエネルギーをイメージしてみてください。
+          </p>
+          <p>
+            近年の環境破壊によって、山のエネルギー値はどんどん下がっています。
+            松は、山全体を維持することを優先して、
+            自分からいなくなることを選択しているのです。
+          </p>
+          <p>
+            山のエネルギー値が下がっているということは、他にも様々な現象を通して、
+            異変に気づいている方が多いのではないでしょうか。
+          </p>
+        </div>
+      </article>
+      <article class="card card--column js-post" data-date="2026.01.17">
+        <img class="card__img" src="assets/nature-12.JPG" alt="">
+        <h3 class="card__title">自然界を知る</h3>
+       
+        <!-- ▼ 記事本文（非表示） -->
+        <div class="post-content" hidden>
+          <p>
+            自然界はエネルギー循環しています。もちろん私達人間も。
+          </p>
+          <p>
+            しかし人間は、頭しか使わなくなってしまいました。
+          </p>
+          <p>
+            その結果、自然界の声も、目の前にいる相手の気持ちも、
+            もっと言えば自分の心の声も、少しずつ聞こえなくなってきています。
+          </p>
+          <p>
+            自然界からどんどん離れているのです。
+            人間が、地球という星との本来のつながりを忘れた結果、
+            地球のエネルギー循環に今年異変が起こりました。
+          </p>
+          <p>
+            誰もが喜びを感じる”春の芽吹き”には理由があります。
+            地球が太陽の周りを公転していることにも理由があるのです。
+            その理由が、地球が生まれてからずっと繰り返されてきた、
+            エネルギー循環のリセットです。
+          </p>
+          <p>
+            ”それが今年起こりませんでした”
+          </p>
+          <p>
+            自然界は眠ります。
+            人間が自分勝手にいじることをやめなければならない一年です。
+          </p>
+        </div>
+      </article>
+      <article class="card card--column js-post" data-date="2026.01.17">
+        <img class="card__img" src="assets/sakura-clm.JPG" alt="">
+        <h3 class="card__title">桜が咲かない</h3>
+
+        <!-- ▼ 記事本文（非表示） -->
+        <div class="post-content" hidden>
+          <p>
+            桜の開花は、私たち日本人にとって、
+            心の拠り所とも言える温かな幸せを運んでくれます。
+            しかし、現代の私たちは、桜に対するお返しを何もすることができなくなっています。
+            お返しとは、肥料ではありません。
+          </p>
+          <p>
+            桜は浄化のエネルギーを一方的に使うばかりで、とても疲れてきています。
+            さらに今年とうとう、自然界に今までのようなリセットが起きませんでした。
+            ですから、桜に何か異変が起こるとしたら、これが理由です。
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <div class="center">
+      <a class="btn" href="column.html">Read more</a>
+    </div>
+  </div>
+</section>
+
+  <!-- Epilogue -->
+      <section class="section section--greeting" id="epilogue">
+        <div class="container container--narrow">
+          <h2 class="section__title">Epilogue</h2>
+          <p class="section__text">
+            地球に 人間に 問いかけています<br>
+            太陽は必要ですか？<br>
+            月は本当に必要ですか？
+          </p>
+
+          <img class="about__image" src="assets/epilogue-img.jpg" alt="">
+        </div>
+      </section>
+
+
+
+    <!-- Contact -->
+    <section class="section section--contact" id="contact">
+      <div class="contact-box">
+        <h2 class="contact-box__title">Contact</h2>
+
+        <p>随時 自然界を知るための講座を開催しています<br>
+        メールにてお問い合わせください</p>
+
+        <div class="contact-box__info">
+          <p>MAIL: yaezuki1818@icloud.com</p>
+        </div>
+
+        <div class="contact-box__sns">
+          <!-- ここ：SNSアイコン・リンク -->
+          <!-- <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a> -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

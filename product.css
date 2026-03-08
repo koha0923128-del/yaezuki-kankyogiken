@@ -1,0 +1,88 @@
+/* ===== Product page only ===== */
+.product-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* 正方形カード */
+.product-grid .card__img{
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* レスポンシブ */
+@media (max-width: 900px){
+  .product-grid{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 520px){
+  .product-grid{
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+/* ===== Product image modal ===== */
+.product-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,.40);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+
+.product-modal.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.product-modal__inner{
+  width: min(760px, calc(100% - 32px));
+  max-height: 85vh;
+  background: var(--paper);
+  border-radius: 14px;
+  overflow: hidden;
+
+  transform: translateY(18px);
+  transition: transform .35s ease;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,.25);
+}
+
+.product-modal.is-open .product-modal__inner{
+  transform: translateY(0);
+}
+
+.product-modal__img{
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  display: block;
+  background: #111; /* 余白が出たとき落ち着く */
+}
+
+.product-modal__close{
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  color: rgba(255,255,255,.92);
+  font-size: 22px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}

@@ -1,0 +1,723 @@
+:root{
+  --bg: #ece7de;         /* 全体のベージュ */
+  --paper: #f4f1ea;      /* 少し明るい */
+  --brown: #5a4a3f;      /* メニュー/Contactの茶 */
+  --text: #3a3a3a;
+  --muted: #7b7b7b;
+  --white: #ffffff;
+
+  --radius: 999px;
+  --container: 1100px;
+}
+
+
+*{ box-sizing: border-box; }
+html,body{ height: 100%; }
+body{
+  margin: 0;
+  font-family: "Noto Serif JP", serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+body.is-locked{
+  overflow: hidden;
+}
+
+img{ max-width: 100%; display:block; }
+a{ color: inherit; text-decoration: none; }
+
+.sr-only{
+  position:absolute; width:1px; height:1px;
+  padding:0; margin:-1px; overflow:hidden;
+  clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+.container{
+  width: min(var(--container), calc(100% - 48px));
+  margin: 0 auto;
+}
+.container--narrow{
+  width: min(900px, calc(100% - 48px));
+}
+
+.center{ display:flex; justify-content:center; margin-top: 28px; }
+
+/* ===== Header ===== */
+.site-header{
+  position: fixed;
+  top: 0; 
+  left: 0; 
+  right: 0;
+  z-index: 20;
+  /* pointer-events: none; 見た目だけ固定、ボタンだけ押せるように後で戻す */
+}
+.header-inner{
+  width: calc(100% - 48px);  /* 常に左右24px */
+  max-width: 1400px;         /* ここで上品に頭打ち */
+  margin: 18px auto 0;
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  pointer-events: auto;
+}
+.logo-mark{
+  height: 42px;
+  width: auto; 
+  display: block;
+}
+
+/* ハンバーガー */
+.hamburger{
+  width: 48px; height: 48px;
+  border: 0;
+  background: rgba(255,255,255,.85);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.hamburger-lines{
+  width: 18px; height: 12px;
+  margin: 0 auto;
+  display:block;
+  position: relative;
+}
+.hamburger-lines::before,
+.hamburger-lines::after,
+.hamburger-lines{
+  border-top: 2px solid #333;
+}
+.hamburger-lines::before,
+.hamburger-lines::after{
+  content:"";
+  position:absolute;
+  left:0; right:0;
+}
+.hamburger-lines::before{ top: 4px; }
+.hamburger-lines::after{ top: 8px; }
+
+/* ===== Hero ===== */
+.hero{
+  height:100vh;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.hero__image{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+.hero__catch{
+  position: absolute;
+  left: 70%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255,255,255,.9);
+  letter-spacing: .12em;
+  font-size: clamp(26px, 2vw, 32px);
+  text-shadow: 0 2px 14px rgba(0,0,0,.25);
+  white-space: nowrap;
+}
+
+/* 下に向かって暗く（or 背景色に）フェード */
+.hero::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 45%; /* グラデーションの高さ */
+  background: linear-gradient(
+  to bottom,
+  rgba(0,0,0,0) 0%,
+  rgba(0,0,0,0.06) 60%,
+  rgba(0,0,0,0.14) 100%
+  );
+  pointer-events: none;
+}
+
+/* ===== Prologue ===== */
+.prologue{
+  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景画像にする（重ねる） */
+.prologue__image{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 文字を画像の上に出す */
+.prologue .container{
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: grid;
+  place-content: center; /* 真ん中寄せ */
+  text-align: center;
+  transform: translateY(-20px);
+}
+
+/* 背景が明るい時のために文字色を白へ */
+.prologue .section__title,
+.prologue .section__text{
+  color: rgba(229, 204, 141, 0.92);
+  text-shadow: 0 2px 14px rgba(0,0,0,.25);
+}
+
+.prologue::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height: 22%; /* 低め */
+  pointer-events:none;
+
+  background: linear-gradient(
+  to bottom,
+  rgba(236,231,222,0) 0%,
+  rgba(236,231,222,0.45) 70%,
+  rgba(236,231,222,1) 100%
+  );
+}
+/* ===== Sections ===== */
+.section{
+  padding: 100px 0;
+}
+.section--greeting,
+.section--about{
+  background: var(--bg);
+}
+
+.section--greeting{
+    padding-bottom: 24px;
+}
+
+.section__title{
+  text-align:center;
+  font-weight: 500;
+  letter-spacing: .06em;
+  margin: 0 0 50px;
+}
+.section__title--left{
+  text-align:left;
+}
+.section__text{
+  text-align:center;
+  color: var(--muted);
+  line-height: 1.9;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+/* Greetingっぽい枠感（画像の印象に寄せ） */
+.section--greeting{
+  background: var(--bg);
+}
+.section--greeting .container--narrow{
+  padding: 34px 0 10px;
+}
+
+/* ===== Carousel (横スクロール) ===== */
+.carousel{
+  margin-top: 26px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 320px;
+  gap: 18px;
+
+  overflow-x: auto;
+  padding: 6px 2px 18px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ===== Product: 1枚フル + 両端チラ見せ（左の余白を詰める） ===== */
+.carousel--product{
+  --card-w: 72%;
+  --gap: 18px;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: var(--card-w);
+  gap: var(--gap);
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  /* ★ここが変更点 */
+  padding: 6px 0 18px; 
+  padding-right: calc((100% - var(--card-w)) / 2);
+}
+
+.carousel--product .card{
+  scroll-snap-align: center; /* 中央でパチっと止まる */
+}
+
+/* ===== Column: 写真8枚 / 表示は3枚ちょうど ===== */
+.carousel--column{
+  --gap: 22px;
+
+  display: grid;
+  grid-auto-flow: column;
+  gap: var(--gap);
+
+  /* 3枚ぴったり表示 */
+  grid-auto-columns: calc((100% - (var(--gap) * 2)) / 3);
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 6px 2px 18px;
+}
+
+.carousel--column .card{
+  scroll-snap-align: start;
+}
+
+/* Columnカードの見た目 */
+.card--column .card__img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #ddd;
+}
+
+.card--column .card__title{
+  margin: 12px 0 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.card--column .card__desc{
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.carousel::-webkit-scrollbar{ height: 8px; }
+.carousel::-webkit-scrollbar-thumb{ background: rgba(0,0,0,.15); border-radius: 999px; }
+.card{
+  background: transparent;
+  scroll-snap-align: start;
+}
+.card__img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #ddd;
+}
+.card__desc{
+  margin: 10px 0 0;
+  text-align:center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Columnはテキストカードっぽく */
+.carousel--text{
+  grid-auto-columns: 260px;
+  justify-content: center;
+}
+.card--text{
+  padding: 18px 10px;
+}
+.card__title{
+  margin: 0;
+  text-align:center;
+  font-weight: 500;
+}
+.card--text .card__desc{
+  margin-top: 10px;
+}
+
+/* ===== Buttons ===== */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width: 180px;
+  padding: 12px 18px;
+  border: 1px solid rgba(0,0,0,.28);
+  border-radius: var(--radius);
+  background: transparent;
+  font-size: 13px;
+  letter-spacing: .02em;
+}
+.btn:hover{ opacity: .85; }
+
+/* ===== Button hover animation (全部入り) ===== */
+.btn{
+  position: relative;
+
+  transition:
+    transform .45s ease,
+    box-shadow .45s ease,
+    border-color .45s ease,
+    color .45s ease;
+}
+
+/* 外側のうっすらリング */
+.btn::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(0,0,0,.08);
+  transition: box-shadow .45s ease;
+}
+
+/* hover（PCなどホバーできる端末だけ） */
+@media (hover: hover){
+  .btn:hover{
+    transform: translateY(-3px);
+    border-color: rgba(0,0,0,.45);
+    box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  }
+
+  .btn:hover::after{
+    box-shadow: 0 0 0 4px rgba(0,0,0,.06);
+  }
+}
+
+/* 押した瞬間（クリック感） */
+.btn:active{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+}
+
+/* ===== About ===== */
+.about__image{
+  margin: 22px auto 0;
+  max-width: 720px;
+  border-radius: 8px;
+}
+
+/* ===== Contact ===== */
+.section--contact{
+  padding: 24px 0;
+  display:flex;
+  justify-content:center;
+}
+.contact-box{
+  width: calc(100% - 48px); /* 常に左右24px */
+  max-width: 1400px;        /* ヘッダーと揃えると綺麗 */
+  margin: 0 auto;
+
+  background: var(--brown);
+  color: rgba(255,255,255,.92);
+  padding: 52px 24px;
+  border-radius: 8px;
+  text-align:center;
+}
+.contact-box__title{ margin: 0 0 18px; font-weight: 500; }
+.contact-box__info p{ margin: 6px 0; color: rgba(255,255,255,.8); }
+.contact-box__sns{
+  margin-top: 18px;
+  display:flex;
+  justify-content:center;
+  gap: 20px;
+}
+.contact-box__sns a{ color: rgba(255,255,255,.85); font-size: 14px; }
+
+/* ===== Drawer ===== */
+.drawer{
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+
+  /* display切替だとアニメしにくいのでopacityで制御 */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.drawer.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 背景を暗くする（ヒーローはそのまま、上に薄暗いフィルターが乗る） */
+.drawer__backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.35);
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.drawer.is-open .drawer__backdrop{
+  opacity: 1;
+}
+
+/* 右パネルだけスライドイン */
+.drawer__panel{
+  position:absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(420px, 82vw);    /* 好みで調整 */
+  background: var(--brown);
+
+  transform: translateX(100%);
+  transition: transform .35s ease;
+  display:flex;
+  flex-direction: column;
+}
+.drawer.is-open .drawer__panel{
+  transform: translateX(0);
+}
+
+/* 右側メニューの中身 */
+.drawer__right{
+  background: transparent;
+  display:flex;
+  flex-direction: column;
+  justify-content:center;
+  gap: 26px;
+  padding: 90px 38px 48px;
+}
+.drawer__link{
+  color: rgba(255,255,255,.9);
+  font-size: 34px;
+  letter-spacing: .04em;
+}
+.drawer__link:hover{ opacity: .85; }
+
+.drawer__close{
+  position:absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 56px;
+  height: 56px;
+  border:0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(255,255,255,.92);
+  font-size: 34px;
+  cursor:pointer;
+}
+
+/* いまの左カラムは使わないので非表示（HTMLはそのままでOK） */
+.drawer__left{ display:none; }
+
+@media (max-width: 900px){
+  .drawer__right{ padding: 90px 28px 48px; }
+  .drawer__link{ font-size: 28px; }
+}
+
+/* ===== Responsive (一応) ===== */
+@media (max-width: 900px){
+  .drawer__panel{ grid-template-columns: 1fr; }
+  .drawer__left{ display:none; }
+  .drawer__right{ padding: 90px 28px; }
+  .drawer__link{ font-size: 28px; }
+}
+
+/* ===== Hover: 写真だけゆっくりふわっと ===== */
+.card__img{
+  transition: transform .55s ease, box-shadow .55s ease;
+}
+
+@media (hover: hover){
+  .card:hover .card__img{
+    transform: translateY(-8px);
+    box-shadow: 0 14px 30px rgba(0,0,0,.12);
+  }
+}
+
+/* ===== Reveal: スクロールでふわっと表示 ===== */
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity .6s ease, transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Hero catch: 右からふわっと（位置は崩さない） ===== */
+.hero__catchText{
+  display: inline-block;
+}
+
+.hero-catch--reveal{
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity .9s ease, transform .9s ease;
+}
+
+.hero-catch--reveal.is-visible{
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== Column専用：クリックを殺さないふわっと表示 ===== */
+
+/* Columnカードは transform を使わない */
+#column .carousel--column .card.reveal{
+  transform: none !important;
+}
+
+/* 透明 → 表示 だけでふわっと */
+#column .carousel--column .card.reveal{
+  opacity: 0;
+  transition: opacity .6s ease;
+}
+
+#column .carousel--column .card.reveal.is-visible{
+  opacity: 1;
+}
+
+/* クリックできる感 */
+#column .js-post{
+  cursor: pointer;
+}
+
+/* ===== Column modal（記事モーダル） ===== */
+.column-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+
+.column-modal.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.column-modal__inner{
+  width: min(760px, calc(100% - 32px));
+  max-height: 85vh;
+  background: var(--paper);
+  border-radius: 14px;
+  padding: 36px 28px;
+  overflow-y: auto;
+
+  transform: translateY(18px);
+  transition: transform .35s ease;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,.25);
+}
+
+.column-modal.is-open .column-modal__inner{
+  transform: translateY(0);
+}
+
+.column-modal__close{
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0,0,0,.06);
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--muted);
+}
+
+.column-modal__title{
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.column-modal__date{
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.column-modal__body p{
+  margin: 0 0 18px;
+  line-height: 2;
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* ===== Product image modal ===== */
+.product-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,.40);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+}
+
+.product-modal.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.product-modal__inner{
+  width: min(760px, calc(100% - 32px));
+  max-height: 85vh;
+  background: var(--paper);
+  border-radius: 14px;
+  overflow: hidden;
+
+  transform: translateY(18px);
+  transition: transform .35s ease;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,.25);
+}
+
+.product-modal.is-open .product-modal__inner{
+  transform: translateY(0);
+}
+
+.product-modal__img{
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: contain;
+  display: block;
+  background: #111; /* 余白が出たとき落ち着く */
+}
+
+.product-modal__close{
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  color: rgba(255,255,255,.92);
+  font-size: 22px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+}
