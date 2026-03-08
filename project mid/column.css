@@ -1,0 +1,81 @@
+.column-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 900px){
+  .column-grid{ grid-template-columns: repeat(2, 1fr); gap: 22px; }
+}
+@media (max-width: 520px){
+  .column-grid{ grid-template-columns: 1fr; gap: 18px; }
+}
+
+/* ===== Column modal ===== */
+.column-modal{
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .4s ease;
+}
+
+.column-modal.is-open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 中身 */
+.column-modal__inner{
+  width: min(760px, calc(100% - 32px));
+  max-height: 85vh;
+  background: var(--paper);
+  border-radius: 14px;
+  padding: 36px 28px;
+  overflow-y: auto;
+  transform: translateY(24px);
+  transition: transform .4s ease;
+}
+
+.column-modal.is-open .column-modal__inner{
+  transform: translateY(0);
+}
+
+/* タイトル */
+.column-modal__title{
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+/* 日付 */
+.column-modal__date{
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+/* 本文 */
+.column-modal__body p{
+  margin: 0 0 18px;
+  line-height: 2;
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* 閉じるボタン */
+.column-modal__close{
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--muted);
+}

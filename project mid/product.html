@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery-Sample Site</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- 雰囲気用：セリフ系 -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="product.css">
+</head>
+
+<body>
+  <!-- ========== Header (Hero上に重ねる) ========== -->
+  <header class="site-header">
+    <div class="header-inner">
+       <a class="logo" href="index.html">
+            <img class="logo-mark" src="assets/yaezuki-logo.png" alt="八重月環境技研ホームページ">
+        </a>
+
+      <button class="hamburger" type="button" aria-label="メニューを開く" aria-controls="drawer" aria-expanded="false">
+        <span class="hamburger-lines" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========== Drawer / Overlay Menu ========== -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer__backdrop" data-close></div>
+
+    <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="サイトメニュー">
+      <button class="drawer__close" type="button" aria-label="メニューを閉じる" data-close>×</button>
+
+      <div class="drawer__left">
+        <!-- ここ：メニュー表示中も見える大きい写真（背景） -->
+        <img class="drawer__image" src="assets/hero.jpg" alt="">
+      </div>
+
+      <nav class="drawer__right">
+        <a class="drawer__link" href="index.html">Home</a>
+        <a class="drawer__link" href="product.html">Gallery</a>
+        <a class="drawer__link" href="about.html">About</a>
+        <a class="drawer__link" href="column.html">Column</a>
+        <a class="drawer__link" href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    
+    <!-- ========== Product(全画面表示) ========== -->
+    <section class="section" id="product">
+      <div class="container">
+        <h1 class="section__title section__title--left">Gallery</h1>
+
+        <div class="product-grid">
+          <div class="card js-product">
+            <img class="card__img" src="assets/anneUmi.JPG" alt="アンうみ">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/tsuruha-1.JPG" alt="Moon Ochoko">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/tsuruha-2.JPG" alt="Nitted Pot">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/tsuruha-3.JPG" alt="Chip">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/tsuruha-4.JPG" alt="Tokkuri">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/nae-2.JPG" alt="Naegi">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/kazusa-1.JPG" alt="服">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/home-1.JPG" alt="Sugidama">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/kazusa-2.jpeg" alt="試着">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/home-2.JPG" alt="アン">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/gallery-1.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/gallery-2.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/gallery-3.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/gallery-4.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/gallery-5.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/gallery-6.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/gallery-7.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/gallery-8.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/gallery-9.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/home-3.JPG" alt="">
+          </div>
+
+          <div class="card js-product">
+            <img class="card__img" src="assets/nature-10.JPG" alt="">
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+      
+    <!-- ========== Contact ========== -->
+      <section class="section section--contact" id="contact">
+        <div class="contact-box">
+          <h2 class="contact-box__title">Contact</h2>
+
+          <p>随時 自然界を知るための講座を開催しています<br>
+          メールにてお問い合わせください</p>
+
+          <div class="contact-box__info">
+            <p>MAIL: yaezuki1818@icloud.com</p>
+          </div>
+
+          <div class="contact-box__sns">
+            <!-- ここ：SNSアイコン・リンク -->
+            <!-- <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="Facebook">Facebook</a> -->
+          </div>
+        </div>
+      </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
